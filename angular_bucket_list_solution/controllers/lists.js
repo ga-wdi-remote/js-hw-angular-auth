@@ -16,7 +16,8 @@ router.post('/', function(req, res){
     user.save();
 
     console.log(user);
-  })
+    res.json({ user });
+  });
 });
 
 module.exports = router;

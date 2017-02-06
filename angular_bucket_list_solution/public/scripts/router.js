@@ -1,4 +1,4 @@
-angular.module('giphyAngularApp', ['ui.router'])
+angular.module('listAngularApp', ['ui.router'])
   .config(GiphyRouter);
 
 function GiphyRouter($stateProvider, $urlRouterProvider){
@@ -22,8 +22,8 @@ function GiphyRouter($stateProvider, $urlRouterProvider){
     url: '/user/:id',
     templateUrl: '/partials/user.html'
   })
-  .state('updateGif', {
-    url: '/update-gif/:gifId',
-    templateUrl: '/partials/update_gif.html'
+  .state('updateList', {
+    url: '/update-list/:listId',
+    templateUrl: '/partials/update-list.html'
   });
 }
