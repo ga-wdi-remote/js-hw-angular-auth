@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="giphyAngularApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Giphy</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+  <script src="/scripts/router.js"></script>
+  <script src="/scripts/app.js"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body ng-controller="HomeController as home">
+  <div ng-if="home.currentUser">
+    <p>Welcome {{home.currentUser.email}}</p>
+  </div>
+  <div ng-controller="AuthController as auth">
+      <ul>
+        <li ui-sref="signup">signup</li>
+        <li ui-sref="login">login</li>
+        <li ng-click="auth.logout()">logout</li>
+      </ul>
+
+    <ui-view>
+
+    </ui-view>
+
+    <div class="container">
+      <div class="image-container">
+        <img class="image-jumbotron" src="" alt="">
+      </div>
+      <div>
+        <button ng-click="home.getGif()" class="get-gif">GET GIF</button>
+        <button class="save-gif">SAVE GIF</button>
+        <button class="saved-gifs">See Saved Gifs</button>
+      </div>
+    </div>
+
+      <div class="all-gifs-container">
+
+      </div>
+
+  </div>
+</body>
+</html>
