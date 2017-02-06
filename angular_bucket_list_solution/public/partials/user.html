@@ -9,5 +9,5 @@
 <h2>My Summer Bucket List</h2>
 
 <ul>
-  <li ng-repeat="item in list.userList">{{item.name}}<button ng-click="list.showEditForm(list, home.currentUser)">Edit</button></li>
+  <li ng-repeat="item in list.userList">{{item.name}}<button ng-click="list.showEditForm(item, home.currentUser)">Edit</button></li>
 </ul>

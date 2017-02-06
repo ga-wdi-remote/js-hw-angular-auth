@@ -69,6 +69,7 @@ angular.module('listAngularApp')
       list.showEditForm = showEditForm;
       list.updateList = updateList;
       list.userList = [];
+      list.deleteList = deleteList;
 
       function showUser(userId){
 
@@ -97,7 +98,7 @@ angular.module('listAngularApp')
 
       //show the edit form
       function showEditForm(list, currentUser) {
-        console.log("clicky poo");
+        console.log(list);
         self.name = list.name;
 
         $state.go('updateList', {
@@ -108,74 +109,25 @@ angular.module('listAngularApp')
 
        //edit the list item
        function updateList(currentUser) {
+         console.log($stateParams);
          $http.put(`/users/${currentUser._id}/lists/${$stateParams.listId}`, { name: list.name} )
-           .then(function(Response) {
-             self.savedLists = Response.data.currentUser.lists;
+           .then(function(response) {
+             console.log(response);
+            list.userList = response.data.user.list;
 
-             self.url = '';
-             self.name = '';
-
-             $state.go('savedLists', { userId: currentUser._id })
-           })
+             $state.go('user', {id: currentUser._id});
+           });
        }
 
-      // $rootScope.$on('fetchData', function(event, data) {
-      //   populateInitialState(data)
-      // });
-
-      // function populateInitialState(data) {
-      //   $http.get(`users/${currentUser._id}/lists`)
-      //     .then(function(response) {
-      //       self.savedLists = response.data.lists
-      //     })
-      // }
-      //
-      // function getSavedLists(currentUser) {
-      //   $http.get(`users/${currentUser._id}/lists`)
-      //     .then(function(response) {
-      //       self.savedLists = response.data.lists
-      //
-      //       $state.go('savedLists', {userId: currentUser._id})
-      //     })
-      // }
-
-      // function saveList(url, currentUser) {
-      //   console.log(currentUser)
-      //   $http.post(`/users/${currentUser._id}/lists`, { url: url, name: self.name } )
-      //     .then(function(serverResponse) {
-      //       self.savedLists.push(serverResponse.data.list);
-      //       self.name = '';
-      //       .listUrl = '';
-      //
-      //       $state.go('savedLists', { userId: currentUser._id })
-      //     })
-      // }
-      //
-      // function populateFormData(list, currentUser) {
-      //   self.url = list.url
-      //   self.name = list.name
-      //
-      //   $state.go('updateList', {
-      //     userId: currentUser._id,
-      //     listId: list._id
-      //   })
-      //  }
-      //
+       //delete the item
+      function deleteList(currentUser) {
+        $http.delete(`users/${currentUser._id}/lists/${$stateParams.listId}`)
+          .then(function(response) {
+            console.log(response);
+            list.userList = response.data.user.list;
+            $state.go('user', {id: currentUser._id});
+          });
+      }
 
 
-      //
-      // function deleteList(id, currentUser) {
-      //   console.log(id)
-      //   $http.delete(`users/${currentUser._id}/lists/${id}`)
-      //     .then(function(response) {
-      //       self.savedLists = response.data.currentUser.lists
-      //     })
-      // }
-      //
-      // this.getList = getList;
-      // this.saveList = saveList;
-      // this.updateList = updateList;
-      // this.populateFormData = populateFormData;
-      // this.getSavedLists = getSavedLists;
-      // this.deleteList = deleteList;
     };
