@@ -25,6 +25,7 @@ router.get('/:id', authHelpers.authorize, function(req, res) {
 
 router.post('/', authHelpers.createSecure, function(req, res){
   var user = new User({
+    name: req.body.name,
     email: req.body.email,
     password_digest: res.hashedPassword
   });

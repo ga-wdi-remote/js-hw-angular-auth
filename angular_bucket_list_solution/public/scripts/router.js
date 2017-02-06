@@ -7,7 +7,8 @@ function GiphyRouter($stateProvider, $urlRouterProvider){
 
   $stateProvider
   .state('index', {
-    url: '/'
+    url: '/',
+    templateUrl: '/partials/home.html'
   })
   .state('login', {
     url: '/login',
@@ -16,5 +17,13 @@ function GiphyRouter($stateProvider, $urlRouterProvider){
   .state('signup', {
     url: '/signup',
     templateUrl: '/partials/signup.html'
+  })
+  .state('user', {
+    url: '/user/:id',
+    templateUrl: '/partials/user.html'
+  })
+  .state('updateGif', {
+    url: '/update-gif/:gifId',
+    templateUrl: '/partials/update_gif.html'
   });
 }
