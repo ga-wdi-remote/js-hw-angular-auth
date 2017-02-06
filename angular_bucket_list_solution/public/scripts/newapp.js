@@ -64,7 +64,6 @@ angular.module('listAngularApp')
   function ListController($scope, $http, $state, $stateParams, $rootScope) {
       var list = this;
       list.saveList = saveList;
-      // list.getSavedLists = getSavedLists;
       list.showUser = showUser;
       list.showEditForm = showEditForm;
       list.updateList = updateList;
