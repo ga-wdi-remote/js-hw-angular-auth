@@ -6,9 +6,11 @@ In tonight's assignment, you'll beef up Summer Bucket List into a lean, MEAN sta
 
 ### Setup :
 
-Your server, models, and Authentication have been set up for you.
-
-You will be writing your code in:
+- Run `npm install` to install this app's dependencies.
+- Run `mongod` and `mongo`
+- App runs on localhost:3000
+- Your server, models, and Authentication code have been set up for you.
+- You will be writing your code in:
 
 |   |Filename |   Content|  
 |---|---|---|---|---|
