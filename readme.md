@@ -27,6 +27,7 @@ You will be writing your code in:
   - your requirements and module have been set up.
   - set up routes for your `List` resource in here.
   - hint: if you check the `server.js` file, this controller is for requests to : `localhost:3000/users/:id/lists`
+  - :dart: Commit frequently!
 
 
 ### Client-side: Scripts
@@ -36,16 +37,19 @@ You will be writing your code in:
   - The app has been set up for you, including: Home, Auth, and List controllers. You will be writing your CRUD actions for the `list` resource in the `List Controller`.
   - Begin with creating Users and checking they exist in your `mongo` database.
   - Display the users (maybe through a $http call for all users in Authentication controller?)
+  - :dart: Commit frequently!
 
 #### router.js
 
   - Your router is set up for you. You will need to add states for the user show page and for the updateList (edit) form.
+  - :dart: Commit frequently!
 
 #### Flow of the App (User Stories):
 
   - When users log in, they see a list of all signed-up users' names. Clicking on a different user doesn't do anything. Clicking on their own name brings them to their show page.
   - In their show page, they can add a new list item. Clicking "Add to List" will display the list item underneath, along with an "EDIT" button.
   - Clicking on the "EDIT" button will take the user to a new view: an edit form for the list, and a delete button. Clicking "UPDATE" will take them back to the show page with the newly edited item. Clicking "DELETE" will take them back to the show page and that item is gone.
+  - :dart: Commit frequently!
 
 ### Client-side: Views
   - index.html is set up for you. You will work in the partials files:
@@ -78,6 +82,7 @@ You will be writing your code in:
 
 ### Reach Goals
 
+- Hide "Logout" when a user is logged out. Hide "Login" and "Signup" when a user is logged in.
 - Add a "Done" button by each list item. When a user clicks on "Done", it appears in the "Fulfilled Dreams" section with a "Didn't Do It" button.
 - Clicking on "Didn't Do It" will remove it from "Fulfilled Dreams" and be placed back in the Bucket List.
 
