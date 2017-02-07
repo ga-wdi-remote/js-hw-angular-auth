@@ -112,7 +112,7 @@ angular.module('listAngularApp')
        function updateList(currentUser, currentList) {
          console.log($stateParams);
          console.log("***LIST: ", currentList);
-         $http.put(`/users/${currentUser._id}/lists/${$stateParams.listId}`, { name: list.name, complete: !list.complete} )
+         $http.put(`/users/${currentUser._id}/lists/${$stateParams.listId}`, { name: list.name} )
            .then(function(response) {
              console.log(response);
             list.userList = response.data.user.list;
