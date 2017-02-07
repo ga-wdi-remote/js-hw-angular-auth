@@ -29,11 +29,17 @@ You will be writing your code in:
   - hint: if you check the `server.js` file, this controller is for requests to : `localhost:3000/users/:id/lists`
 
 
-### Client-side: App.js
+### Client-side: Scripts
+
+#### App.js
 
   - The app has been set up for you, including: Home, Auth, and List controllers. You will be writing your CRUD actions for the `list` resource in the `List Controller`.
   - Begin with creating Users and checking they exist in your `mongo` database.
-  - Now we need to display the users (maybe through Authentication controller?)
+  - Display the users (maybe through a $http call for all users in Authentication controller?)
+
+#### router.js
+
+  - Your router is set up for you. You will need to add states for the user show page and for the updateList (edit) form.
 
 #### Flow of the App (User Stories):
 
