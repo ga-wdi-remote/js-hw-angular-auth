@@ -1,5 +1,7 @@
 ## Summer Bucket List: The Sequel
 
+![image](https://s-media-cache-ak0.pinimg.com/originals/c3/80/6c/c3806c04b718f742aced6ea14b604988.jpg)
+
 A long, long time ago.... you built Summer Bucket List 1.0 using Handlebars. Ah, memories..
 
 In tonight's assignment, you'll beef up Summer Bucket List into a lean, MEAN stack app using Angular for our front-end framework.
