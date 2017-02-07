@@ -50,6 +50,17 @@ You will be writing your code in:
 |  `partials/update-list.html` |  Edit form for "this" list item. You can edit the list's name. |
 |  `partials/user.html` |  Display's Username. Displays a form to add new list items. Displays all list items. **Bonus** Displays completed and incomplete list items.  |   
 
+Home Page (user logged out):
+![image](screenshots/homepage.png)
+
+Home Page (user logged in):
+![image](screenshots/user.png)
+
+User show page:
+![image](screenshots/showpage.png)
+
+Edit Form:
+![image](screenshots/editform.png)
 
 
 ### Reach Goals
