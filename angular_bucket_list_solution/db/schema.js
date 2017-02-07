@@ -5,7 +5,7 @@ mongoose.Promise = global.Promise;
 
 var ListSchema = new Schema({
   name: String,
-  complete: Boolean,
+  complete: {type: Boolean, default: false},
   created_at: Date,
   updated_at: Date
 });

@@ -27,7 +27,9 @@ router.put('/:listId', function(req, res) {
     console.log("THE USER:", user);
     if (err) { console.log(err); };
     var list = user.list.id(req.params.listId);
+
     list.name = req.body.name;
+    list.complete = req.body.complete;
     user.save();
     res.json({ user });
   });

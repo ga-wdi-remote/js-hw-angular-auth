@@ -69,6 +69,7 @@ angular.module('listAngularApp')
       list.updateList = updateList;
       list.userList = [];
       list.deleteList = deleteList;
+      list.completed = completed;
 
       function showUser(userId){
 
@@ -96,20 +97,22 @@ angular.module('listAngularApp')
       }
 
       //show the edit form
-      function showEditForm(list, currentUser) {
+      function showEditForm(currentList, currentUser) {
         console.log(list);
-        self.name = list.name;
+        self.name = currentList.name;
 
         $state.go('updateList', {
           userId: currentUser._id,
-          listId: list._id
+          listId: currentList._id,
+          currentList: currentList
         });
        }
 
        //edit the list item
-       function updateList(currentUser) {
+       function updateList(currentUser, currentList) {
          console.log($stateParams);
-         $http.put(`/users/${currentUser._id}/lists/${$stateParams.listId}`, { name: list.name} )
+         console.log("***LIST: ", currentList);
+         $http.put(`/users/${currentUser._id}/lists/${$stateParams.listId}`, { name: list.name, complete: !list.complete} )
            .then(function(response) {
              console.log(response);
             list.userList = response.data.user.list;
@@ -117,6 +120,19 @@ angular.module('listAngularApp')
              $state.go('user', {id: currentUser._id});
            });
        }
+
+       //edit the list item upon completion
+       function completed(currentList, currentUser) {
+
+         $http.put(`/users/${currentUser._id}/lists/${currentList._id}`, { name: currentList.name, complete: !currentList.complete} )
+           .then(function(response) {
+             console.log(response);
+            list.userList = response.data.user.list;
+            // list.updateList(currentUser, list);
+            // $state.go('user', {id: currentUser._id});
+           });
+       }
+
 
        //delete the item
       function deleteList(currentUser) {
@@ -128,5 +144,8 @@ angular.module('listAngularApp')
           });
       }
 
+      // list.completeFilter = function(item) {
+      //   return item.complete === true;
+      // };
 
     };
